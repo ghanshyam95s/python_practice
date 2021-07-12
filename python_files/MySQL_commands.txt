@@ -1,0 +1,735 @@
+mysql --version                                                       -----> to check Mysql install properly or not 
+
+select user();                                                        -----> to check user & Host
+
+show databases;                                                       -----> Show Databases
+
+create database [db_name];                                            -----> To creat Database
+
+use [db_name];                                                        -----> To use Database
+
+drop database [db_name]                                               -----> To Drop the Database
+
+create table [table_name] (c1,c2,c3...);                              -----> To create Table in Data base  
+
+show tables;                                                          -----> To show table
+
+desc [tb_name];                                                       -----> To desc Table (to find the tables details)
+
+drop table [table_name];                                              -----> To drop Table 
+
+select * from [tb_name];                                              -----> to check table details 
+
+alter table [old table name] rename to [new name];                    -----> To Rename table name 
+
+truncate table [table_name];                                          -----> to delete only data in table not table  
+
+
+insert into [table_name](id,name,city) values(12,'durgesh','delhi');  -----> To insert data in table 
+insert intor [table_name] values(12,'ankit','kanpur');                -----> To insert data in table 
+
+alter table [table_name] add col;                                     -----> add new coloum in Table 
+
+update [table_name] set col= new value,col=new value where col=value; ------> update specific new data in table  
+
+delete from [table_name] where col=value;                             ------> delete specific data in table 
+
+
+select * from [table_name] order by [Col];                            ------> to sort by Col1
+
+select * from [table_name] order by [Col] desc;                       ------> To sort in desc order 
+
+select * from [table_name] order by [Col] asc;                        ------> To sort in asc order
+
+select * from [table_name] limit 2 offset 2;
+
+select * from [table_name] order by [Col] desc limit 2;
+
+select * from [table_name] limit 2;
+
+select distinct ([col]) from [table_name];
+
+select [col] from [table_name];
+
+select SUM([col]) from [tb_name];
+
+select SUM([col]) as "Total Salary" from [tb_name];
+
+select AVG([col]) from [tb_name];
+
+select COUNT([col]) from [tb_name];
+
+select MIN([col]) from [tb_name];
+
+select * from [tb_name] where name like 'a%';
+
+select * from [tb_name] where city like "_u%";
+
+select * from [tb_name] where city like "%o_";
+
+select * from [tb_name] where country='india' and  city='lucknow';
+
+select * from [tb_name] where id >=24 and id<=2334;
+
+select * from [tb_name] where id between 24 and 2334;
+
+select * from [tb_name] where id >24 and id<2334;
+
+select * from [tb_name] where country='india' or city='lucknow';
+
+select * from [tb_name] where id=23 or id=234 or id=246;
+
+select * from [tb_name] where id in(23,234,246);
+
+
+create table laptops(lid int primary key, lmodel varchar(200), [tb_name]Id int , foreign key([tb_name]Id) references [tb_name](id));
+insert into laptops values(13414,'HP',23);
+
+
+
+
+
+
+
+
+
+mysql> use learn;
+Database changed
+mysql> show tables;
++-----------------+
+| Tables_in_learn |
++-----------------+
+| [tb_name]         |
++-----------------+
+1 row in set (0.00 sec)
+
+mysql> select * from [tb_name];
++----------+---------+---------+---------+
+| id       | name    | city    | country |
++----------+---------+---------+---------+
+|       23 | ankit   | delhi   | ind     |
+|       24 | sanket  | lucknow | india   |
+|      234 | ishant  | lucknow | india   |
+|      246 | sumit   | lucknow | india   |
+|     2334 | aman    | kanpur  | india   |
+| 24234236 | ramsigh | lucknow | india   |
++----------+---------+---------+---------+
+6 rows in set (0.00 sec)
+
+mysql> select * from [tb_name];
++----------+---------+---------+---------+
+| id       | name    | city    | country |
++----------+---------+---------+---------+
+|       23 | ankit   | delhi   | ind     |
+|       24 | sanket  | lucknow | india   |
+|      234 | ishant  | lucknow | india   |
+|      246 | sumit   | lucknow | india   |
+|     2334 | aman    | kanpur  | india   |
+| 24234236 | ramsigh | lucknow | india   |
++----------+---------+---------+---------+
+6 rows in set (0.00 sec)
+
+mysql> select * from [tb_name] where city='lucknow';
++----------+---------+---------+---------+
+| id       | name    | city    | country |
++----------+---------+---------+---------+
+|       24 | sanket  | lucknow | india   |
+|      234 | ishant  | lucknow | india   |
+|      246 | sumit   | lucknow | india   |
+| 24234236 | ramsigh | lucknow | india   |
++----------+---------+---------+---------+
+4 rows in set (0.00 sec)
+
+mysql> select * from [tb_name] where country='india';
++----------+---------+---------+---------+
+| id       | name    | city    | country |
++----------+---------+---------+---------+
+|       24 | sanket  | lucknow | india   |
+|      234 | ishant  | lucknow | india   |
+|      246 | sumit   | lucknow | india   |
+|     2334 | aman    | kanpur  | india   |
+| 24234236 | ramsigh | lucknow | india   |
++----------+---------+---------+---------+
+5 rows in set (0.00 sec)
+
+mysql> select * from [tb_name] where country='india';
++----------+---------+---------+---------+
+| id       | name    | city    | country |
++----------+---------+---------+---------+
+|       24 | sanket  | lucknow | india   |
+|      234 | ishant  | lucknow | india   |
+|      246 | sumit   | lucknow | india   |
+|     2334 | aman    | kanpur  | india   |
+| 24234236 | ramsigh | lucknow | india   |
++----------+---------+---------+---------+
+5 rows in set (0.00 sec)
+
+mysql> select name,city,country from [tb_name] where country='india';
++---------+---------+---------+
+| name    | city    | country |
++---------+---------+---------+
+| sanket  | lucknow | india   |
+| ishant  | lucknow | india   |
+| sumit   | lucknow | india   |
+| aman    | kanpur  | india   |
+| ramsigh | lucknow | india   |
++---------+---------+---------+
+5 rows in set (0.00 sec)
+
+mysql> select name as  "USERNAME" , city as "CITYNAME" from [tb_name] ;
++----------+----------+
+| USERNAME | CITYNAME |
++----------+----------+
+| ankit    | delhi    |
+| sanket   | lucknow  |
+| ishant   | lucknow  |
+| sumit    | lucknow  |
+| aman     | kanpur   |
+| ramsigh  | lucknow  |
++----------+----------+
+6 rows in set (0.00 sec)
+
+mysql> select * from [tb_name] where city='kanpur';
++------+------+--------+---------+
+| id   | name | city   | country |
++------+------+--------+---------+
+| 2334 | aman | kanpur | india   |
++------+------+--------+---------+
+1 row in set (0.00 sec)
+
+mysql> select * from [tb_name];
++----------+---------+---------+---------+
+| id       | name    | city    | country |
++----------+---------+---------+---------+
+|       23 | ankit   | delhi   | ind     |
+|       24 | sanket  | lucknow | india   |
+|      234 | ishant  | lucknow | india   |
+|      246 | sumit   | lucknow | india   |
+|     2334 | aman    | kanpur  | india   |
+| 24234236 | ramsigh | lucknow | india   |
++----------+---------+---------+---------+
+6 rows in set (0.00 sec)
+
+mysql> select country from [tb_name];
++---------+
+| country |
++---------+
+| ind     |
+| india   |
+| india   |
+| india   |
+| india   |
+| india   |
++---------+
+6 rows in set (0.00 sec)
+
+mysql> select distinct(country) from [tb_name];
++---------+
+| country |
++---------+
+| ind     |
+| india   |
++---------+
+2 rows in set (0.00 sec)
+
+mysql> select * from [tb_name];
++----------+---------+---------+---------+
+| id       | name    | city    | country |
++----------+---------+---------+---------+
+|       23 | ankit   | delhi   | ind     |
+|       24 | sanket  | lucknow | india   |
+|      234 | ishant  | lucknow | india   |
+|      246 | sumit   | lucknow | india   |
+|     2334 | aman    | kanpur  | india   |
+| 24234236 | ramsigh | lucknow | india   |
++----------+---------+---------+---------+
+6 rows in set (0.00 sec)
+
+mysql> select * from [tb_name] where country='india' and  city='lucknow';
++----------+---------+---------+---------+
+| id       | name    | city    | country |
++----------+---------+---------+---------+
+|       24 | sanket  | lucknow | india   |
+|      234 | ishant  | lucknow | india   |
+|      246 | sumit   | lucknow | india   |
+| 24234236 | ramsigh | lucknow | india   |
++----------+---------+---------+---------+
+4 rows in set (0.00 sec)
+
+mysql> select * from [tb_name] where country='india' or city='lucknow';
++----------+---------+---------+---------+
+| id       | name    | city    | country |
++----------+---------+---------+---------+
+|       24 | sanket  | lucknow | india   |
+|      234 | ishant  | lucknow | india   |
+|      246 | sumit   | lucknow | india   |
+|     2334 | aman    | kanpur  | india   |
+| 24234236 | ramsigh | lucknow | india   |
++----------+---------+---------+---------+
+5 rows in set (0.00 sec)
+
+mysql> select * from user;
+ERROR 1146 (42S02): Table 'learn.user' doesn't exist
+mysql> select * from [tb_name];
++----------+---------+---------+---------+
+| id       | name    | city    | country |
++----------+---------+---------+---------+
+|       23 | ankit   | delhi   | ind     |
+|       24 | sanket  | lucknow | india   |
+|      234 | ishant  | lucknow | india   |
+|      246 | sumit   | lucknow | india   |
+|     2334 | aman    | kanpur  | india   |
+| 24234236 | ramsigh | lucknow | india   |
++----------+---------+---------+---------+
+6 rows in set (0.00 sec)
+
+mysql> select * from [tb_name] where id >=24 and id<=2334;
++------+--------+---------+---------+
+| id   | name   | city    | country |
++------+--------+---------+---------+
+|   24 | sanket | lucknow | india   |
+|  234 | ishant | lucknow | india   |
+|  246 | sumit  | lucknow | india   |
+| 2334 | aman   | kanpur  | india   |
++------+--------+---------+---------+
+4 rows in set (0.00 sec)
+
+mysql> select * from [tb_name] where id between 24 and 2334;
++------+--------+---------+---------+
+| id   | name   | city    | country |
++------+--------+---------+---------+
+|   24 | sanket | lucknow | india   |
+|  234 | ishant | lucknow | india   |
+|  246 | sumit  | lucknow | india   |
+| 2334 | aman   | kanpur  | india   |
++------+--------+---------+---------+
+4 rows in set (0.00 sec)
+
+mysql> select * from [tb_name] where id >24 and id<2334;
++-----+--------+---------+---------+
+| id  | name   | city    | country |
++-----+--------+---------+---------+
+| 234 | ishant | lucknow | india   |
+| 246 | sumit  | lucknow | india   |
++-----+--------+---------+---------+
+2 rows in set (0.00 sec)
+
+mysql> select * from [tb_name];
++----------+---------+---------+---------+
+| id       | name    | city    | country |
++----------+---------+---------+---------+
+|       23 | ankit   | delhi   | ind     |
+|       24 | sanket  | lucknow | india   |
+|      234 | ishant  | lucknow | india   |
+|      246 | sumit   | lucknow | india   |
+|     2334 | aman    | kanpur  | india   |
+| 24234236 | ramsigh | lucknow | india   |
++----------+---------+---------+---------+
+6 rows in set (0.00 sec)
+
+mysql> select * from [tb_name] where id=23 or id=234 or id=246;
++-----+--------+---------+---------+
+| id  | name   | city    | country |
++-----+--------+---------+---------+
+|  23 | ankit  | delhi   | ind     |
+| 234 | ishant | lucknow | india   |
+| 246 | sumit  | lucknow | india   |
++-----+--------+---------+---------+
+3 rows in set (0.00 sec)
+
+mysql> select * from [tb_name] where id in(23,234,246);
++-----+--------+---------+---------+
+| id  | name   | city    | country |
++-----+--------+---------+---------+
+|  23 | ankit  | delhi   | ind     |
+| 234 | ishant | lucknow | india   |
+| 246 | sumit  | lucknow | india   |
++-----+--------+---------+---------+
+3 rows in set (0.00 sec)
+
+mysql> select * from [tb_name];
++----------+---------+---------+---------+
+| id       | name    | city    | country |
++----------+---------+---------+---------+
+|       23 | ankit   | delhi   | ind     |
+|       24 | sanket  | lucknow | india   |
+|      234 | ishant  | lucknow | india   |
+|      246 | sumit   | lucknow | india   |
+|     2334 | aman    | kanpur  | india   |
+| 24234236 | ramsigh | lucknow | india   |
++----------+---------+---------+---------+
+6 rows in set (0.00 sec)
+
+mysql> select * from [tb_name] limit 4;
++-----+--------+---------+---------+
+| id  | name   | city    | country |
++-----+--------+---------+---------+
+|  23 | ankit  | delhi   | ind     |
+|  24 | sanket | lucknow | india   |
+| 234 | ishant | lucknow | india   |
+| 246 | sumit  | lucknow | india   |
++-----+--------+---------+---------+
+4 rows in set (0.00 sec)
+
+mysql> select * from [tb_name] limit 2 2;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '2' at line 1
+mysql> select * from [tb_name] limit 2 offset 2;
++-----+--------+---------+---------+
+| id  | name   | city    | country |
++-----+--------+---------+---------+
+| 234 | ishant | lucknow | india   |
+| 246 | sumit  | lucknow | india   |
++-----+--------+---------+---------+
+2 rows in set (0.00 sec)
+
+mysql> select * from [tb_name];
++----------+---------+---------+---------+
+| id       | name    | city    | country |
++----------+---------+---------+---------+
+|       23 | ankit   | delhi   | ind     |
+|       24 | sanket  | lucknow | india   |
+|      234 | ishant  | lucknow | india   |
+|      246 | sumit   | lucknow | india   |
+|     2334 | aman    | kanpur  | india   |
+| 24234236 | ramsigh | lucknow | india   |
++----------+---------+---------+---------+
+6 rows in set (0.00 sec)
+
+mysql> select * from [tb_name] order by id;
++----------+---------+---------+---------+
+| id       | name    | city    | country |
++----------+---------+---------+---------+
+|       23 | ankit   | delhi   | ind     |
+|       24 | sanket  | lucknow | india   |
+|      234 | ishant  | lucknow | india   |
+|      246 | sumit   | lucknow | india   |
+|     2334 | aman    | kanpur  | india   |
+| 24234236 | ramsigh | lucknow | india   |
++----------+---------+---------+---------+
+6 rows in set (0.00 sec)
+
+mysql> select * from [tb_name] order by id desc;
++----------+---------+---------+---------+
+| id       | name    | city    | country |
++----------+---------+---------+---------+
+| 24234236 | ramsigh | lucknow | india   |
+|     2334 | aman    | kanpur  | india   |
+|      246 | sumit   | lucknow | india   |
+|      234 | ishant  | lucknow | india   |
+|       24 | sanket  | lucknow | india   |
+|       23 | ankit   | delhi   | ind     |
++----------+---------+---------+---------+
+6 rows in set (0.00 sec)
+
+mysql> select * from [tb_name] order by name desc;
++----------+---------+---------+---------+
+| id       | name    | city    | country |
++----------+---------+---------+---------+
+|      246 | sumit   | lucknow | india   |
+|       24 | sanket  | lucknow | india   |
+| 24234236 | ramsigh | lucknow | india   |
+|      234 | ishant  | lucknow | india   |
+|       23 | ankit   | delhi   | ind     |
+|     2334 | aman    | kanpur  | india   |
++----------+---------+---------+---------+
+6 rows in set (0.00 sec)
+
+mysql> select * from [tb_name] order by name asc;
++----------+---------+---------+---------+
+| id       | name    | city    | country |
++----------+---------+---------+---------+
+|     2334 | aman    | kanpur  | india   |
+|       23 | ankit   | delhi   | ind     |
+|      234 | ishant  | lucknow | india   |
+| 24234236 | ramsigh | lucknow | india   |
+|       24 | sanket  | lucknow | india   |
+|      246 | sumit   | lucknow | india   |
++----------+---------+---------+---------+
+6 rows in set (0.00 sec)
+
+mysql> select * from [tb_name] order by name;
++----------+---------+---------+---------+
+| id       | name    | city    | country |
++----------+---------+---------+---------+
+|     2334 | aman    | kanpur  | india   |
+|       23 | ankit   | delhi   | ind     |
+|      234 | ishant  | lucknow | india   |
+| 24234236 | ramsigh | lucknow | india   |
+|       24 | sanket  | lucknow | india   |
+|      246 | sumit   | lucknow | india   |
++----------+---------+---------+---------+
+6 rows in set (0.00 sec)
+
+mysql> select * from [tb_name];
++----------+---------+---------+---------+
+| id       | name    | city    | country |
++----------+---------+---------+---------+
+|       23 | ankit   | delhi   | ind     |
+|       24 | sanket  | lucknow | india   |
+|      234 | ishant  | lucknow | india   |
+|      246 | sumit   | lucknow | india   |
+|     2334 | aman    | kanpur  | india   |
+| 24234236 | ramsigh | lucknow | india   |
++----------+---------+---------+---------+
+6 rows in set (0.00 sec)
+
+mysql> select * from [tb_name] order by id desc limit 2;
++----------+---------+---------+---------+
+| id       | name    | city    | country |
++----------+---------+---------+---------+
+| 24234236 | ramsigh | lucknow | india   |
+|     2334 | aman    | kanpur  | india   |
++----------+---------+---------+---------+
+2 rows in set (0.00 sec)
+
+mysql> update [tb_name] set name='ram singh' where id=24234236;
+Query OK, 1 row affected (0.02 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from [tb_name];
++----------+-----------+---------+---------+
+| id       | name      | city    | country |
++----------+-----------+---------+---------+
+|       23 | ankit     | delhi   | ind     |
+|       24 | sanket    | lucknow | india   |
+|      234 | ishant    | lucknow | india   |
+|      246 | sumit     | lucknow | india   |
+|     2334 | aman      | kanpur  | india   |
+| 24234236 | ram singh | lucknow | india   |
++----------+-----------+---------+---------+
+6 rows in set (0.00 sec)
+
+mysql> select * from [tb_name];
++----------+-----------+---------+---------+
+| id       | name      | city    | country |
++----------+-----------+---------+---------+
+|       23 | ankit     | delhi   | ind     |
+|       24 | sanket    | lucknow | india   |
+|      234 | ishant    | lucknow | india   |
+|      246 | sumit     | lucknow | india   |
+|     2334 | aman      | kanpur  | india   |
+| 24234236 | ram singh | lucknow | india   |
++----------+-----------+---------+---------+
+6 rows in set (0.00 sec)
+
+mysql> select * from [tb_name] where name like 'a%';
++------+-------+--------+---------+
+| id   | name  | city   | country |
++------+-------+--------+---------+
+|   23 | ankit | delhi  | ind     |
+| 2334 | aman  | kanpur | india   |
++------+-------+--------+---------+
+2 rows in set (0.00 sec)
+
+mysql> select * from [tb_name] where city like "_u%";
++----------+-----------+---------+---------+
+| id       | name      | city    | country |
++----------+-----------+---------+---------+
+|       24 | sanket    | lucknow | india   |
+|      234 | ishant    | lucknow | india   |
+|      246 | sumit     | lucknow | india   |
+| 24234236 | ram singh | lucknow | india   |
++----------+-----------+---------+---------+
+4 rows in set (0.00 sec)
+
+mysql> select * from [tb_name] where city like "%o_";
++----------+-----------+---------+---------+
+| id       | name      | city    | country |
++----------+-----------+---------+---------+
+|       24 | sanket    | lucknow | india   |
+|      234 | ishant    | lucknow | india   |
+|      246 | sumit     | lucknow | india   |
+| 24234236 | ram singh | lucknow | india   |
++----------+-----------+---------+---------+
+4 rows in set (0.00 sec)
+
+mysql> select * from [tb_name];
++----------+-----------+---------+---------+
+| id       | name      | city    | country |
++----------+-----------+---------+---------+
+|       23 | ankit     | delhi   | ind     |
+|       24 | sanket    | lucknow | india   |
+|      234 | ishant    | lucknow | india   |
+|      246 | sumit     | lucknow | india   |
+|     2334 | aman      | kanpur  | india   |
+| 24234236 | ram singh | lucknow | india   |
++----------+-----------+---------+---------+
+6 rows in set (0.00 sec)
+
+mysql> select SUM(id) from [tb_name];
++----------+
+| SUM(id)  |
++----------+
+| 24237097 |
++----------+
+1 row in set (0.00 sec)
+
+mysql> select SUM(id) as "Total Salary" from [tb_name];
++--------------+
+| Total Salary |
++--------------+
+|     24237097 |
++--------------+
+1 row in set (0.00 sec)
+
+mysql> select AVG(id) from [tb_name];
++--------------+
+| AVG(id)      |
++--------------+
+| 4039516.1667 |
++--------------+
+1 row in set (0.00 sec)
+
+mysql> select COUNT(id) from [tb_name];
++-----------+
+| COUNT(id) |
++-----------+
+|         6 |
++-----------+
+1 row in set (0.00 sec)
+
+mysql> select MIN(id) from [tb_name];
++---------+
+| MIN(id) |
++---------+
+|      23 |
++---------+
+1 row in set (0.00 sec)
+
+mysql> select name from [tb_name] where id = (select MIN(id) from [tb_name]) ;
++-------+
+| name  |
++-------+
+| ankit |
++-------+
+1 row in set (0.00 sec)
+
+mysql> select name from [tb_name] where id = (select MAX(id) from [tb_name]) ;
++-----------+
+| name      |
++-----------+
+| ram singh |
++-----------+
+1 row in set (0.00 sec)
+
+mysql> show tables;
++-----------------+
+| Tables_in_learn |
++-----------------+
+| [tb_name]         |
++-----------------+
+1 row in set (0.00 sec)
+
+mysql> select * from [tb_name];
++----------+-----------+---------+---------+
+| id       | name      | city    | country |
++----------+-----------+---------+---------+
+|       23 | ankit     | delhi   | ind     |
+|       24 | sanket    | lucknow | india   |
+|      234 | ishant    | lucknow | india   |
+|      246 | sumit     | lucknow | india   |
+|     2334 | aman      | kanpur  | india   |
+| 24234236 | ram singh | lucknow | india   |
++----------+-----------+---------+---------+
+6 rows in set (0.00 sec)
+
+mysql> create table laptops(lid int primary key, lmodel varchar(200), [tb_name]Id int , foreign key([tb_name]Id) references [tb_name](id));
+Query OK, 0 rows affected (0.09 sec)
+
+mysql> show tables;
++-----------------+
+| Tables_in_learn |
++-----------------+
+| laptops         |
+| [tb_name]         |
++-----------------+
+2 rows in set (0.00 sec)
+
+mysql> desc [tb_name];
++---------+--------------+------+-----+---------+-------+
+| Field   | Type         | Null | Key | Default | Extra |
++---------+--------------+------+-----+---------+-------+
+| id      | int          | NO   | PRI | NULL    |       |
+| name    | varchar(100) | NO   |     | NULL    |       |
+| city    | varchar(50)  | YES  |     | NULL    |       |
+| country | varchar(50)  | YES  |     | NULL    |       |
++---------+--------------+------+-----+---------+-------+
+4 rows in set (0.00 sec)
+
+mysql> desc laptops;
++-----------+--------------+------+-----+---------+-------+
+| Field     | Type         | Null | Key | Default | Extra |
++-----------+--------------+------+-----+---------+-------+
+| lid       | int          | NO   | PRI | NULL    |       |
+| lmodel    | varchar(200) | YES  |     | NULL    |       |
+| [tb_name]Id | int          | YES  | MUL | NULL    |       |
++-----------+--------------+------+-----+---------+-------+
+3 rows in set (0.00 sec)
+
+mysql> insert into laptops values(13414,'HP',96418565);
+ERROR 1452 (23000): Cannot add or update a child row: a foreign key constraint fails (`learn`.`laptops`, CONSTRAINT `laptops_ibfk_1` FOREIGN KEY (`[tb_name]Id`) REFERENCES `[tb_name]` (`id`))
+mysql> insert into laptops values(13414,'HP',23);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select * from laptops;
++-------+--------+-----------+
+| lid   | lmodel | [tb_name]Id |
++-------+--------+-----------+
+| 13414 | HP     |        23 |
++-------+--------+-----------+
+1 row in set (0.00 sec)
+
+mysql> insert into laptops values(13414,'Dell',24);
+ERROR 1062 (23000): Duplicate entry '13414' for key 'laptops.PRIMARY'
+mysql> insert into laptops values(134132454,'Dell',24);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select * from laptops;
++-----------+--------+-----------+
+| lid       | lmodel | [tb_name]Id |
++-----------+--------+-----------+
+|     13414 | HP     |        23 |
+| 134132454 | Dell   |        24 |
++-----------+--------+-----------+
+2 rows in set (0.00 sec)
+
+mysql> select * from [tb_name];
++----------+-----------+---------+---------+
+| id       | name      | city    | country |
++----------+-----------+---------+---------+
+|       23 | ankit     | delhi   | ind     |
+|       24 | sanket    | lucknow | india   |
+|      234 | ishant    | lucknow | india   |
+|      246 | sumit     | lucknow | india   |
+|     2334 | aman      | kanpur  | india   |
+| 24234236 | ram singh | lucknow | india   |
++----------+-----------+---------+---------+
+6 rows in set (0.00 sec)
+
+mysql> select [tb_name].name,[tb_name].city , laptops.lmodel from [tb_name] , laptops where [tb_name].id=laptops.[tb_name]Id;
++--------+---------+--------+
+| name   | city    | lmodel |
++--------+---------+--------+
+| ankit  | delhi   | HP     |
+| sanket | lucknow | Dell   |
++--------+---------+--------+
+2 rows in set (0.00 sec)
+
+mysql> select [tb_name].name,[tb_name].city , laptops.lmodel from [tb_name] , laptops where [tb_name].id=laptops.[tb_name]Id and [tb_name].name='Ankit';
++-------+-------+--------+
+| name  | city  | lmodel |
++-------+-------+--------+
+| ankit | delhi | HP     |
++-------+-------+--------+
+1 row in set (0.00 sec)
+
+mysql> select [tb_name].name , laptops.lmodel from [tb_name] inner join laptops on [tb_name].id=laptops.[tb_name]Id;
++--------+--------+
+| name   | lmodel |
++--------+--------+
+| ankit  | HP     |
+| sanket | Dell   |
++--------+--------+
+2 rows in set (0.00 sec)
+
+mysql>
